@@ -13,6 +13,14 @@
       caption-side: top;
       text-align: right;
     }
+
+    .pagination{
+      justify-content: center;
+    }
+
+    .search_wrap{
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -59,8 +67,8 @@
       </tr>
   </table>
         <button type="button" class="btn btn-primary" style="float:right"><i class="bi bi-pencil-fill"></i>글쓰기</button>
-
-    <nav aria-label="페이지 내비게이션">
+    
+    <nav aria-label="페이지 내비게이션" >
       <ul class="pagination">
         <li class="page-item"><a href="#" title="" class="page-link">1</a></li>
         <li class="page-item"><a href="#" title="" class="page-link">2</a></li>
@@ -68,7 +76,7 @@
         <li class="page-item"><a href="#" title="" class="page-link" aria-label="next"><span>&raquo;</span></a></li>
       </ul>
     </nav>
-
+    <div class="search_wrap">
     <select id="search">
       <option value="title">제목</option>
       <option value="subject">내용</option>
@@ -92,7 +100,7 @@
         or
       </label>
     </div>
-    
+  </div>
 
 </body>
 </html>
