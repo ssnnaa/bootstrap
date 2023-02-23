@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./css/bootstrap.css" rel="stylesheet" type="text/css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="./js/bootstrap.js"></script>
+  <script>
+    $(function(){
+      $.getJSON('./data/book_store.json',function(data){
+        let book=`
+        <table class="table table-striped">
+          <caption>북스토어 데이터 출력</caption>
+          <thead class="thead table-dark">
+            <th>번호</th>
+            <th>이름</th>
+            <th>지역</th>
+            <th>지역구</th>
+            <th>지역동</th>
+            <th>보유책수</th>
+            <th>지점장</th>
+            <th>전화번호</th>
+          </tr>
+        </thead><tbody>
+        `
+
+        for(key in data){
+          book+=`<tr>`;
+            for(let i in data[key]){
+              book+=`<td>${data[key][i]}</td>`;
+            }
+            book+=`</tr>`;
+        }
+        book+=`</tbody></table>`;
+        $('#book_box').html(book);
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2>북스토어정보 json데이터 배열로 출력하기</h2>
+  <p>sql데이터 테이블 noodle에서 json데이터를 내려받아 자바스크립트 배열객체를 활용하여 데이터를 출력한다.</p>
+  <p>출력데이터는 테이블 방식으로 출력하고 부트스트랩의 클래스 서식을 적용하여 꾸민다.</p>
+
+  <article id="book_box"></article>
+</body>
+</html>
